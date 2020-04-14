@@ -18,7 +18,15 @@ class App extends Component {
   }
 
   componentDidMount(){
-    fetch("https://jsonplaceholder.typicode.com/users")
+    fetch("https://jsonplaceholder.typicode.com/users", {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "*"
+      },
+      text: "Hello, world."
+    })
           .then(res => res.json())
           .then(user => this.setState({monsters: user}));
   }
